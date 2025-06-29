@@ -1,7 +1,13 @@
-var express = require('express');
-var app = express();
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-app.use(express.static(__dirname + '/src'));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const app = express();
+
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.listen('3000');
-console.log('working on 3000');
+
+console.log('working on http://localhost:3000/');
